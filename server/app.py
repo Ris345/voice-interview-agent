@@ -41,6 +41,7 @@ def call_langflow_api(user_input):
     #     headers["X-API-Key"] = LANGFLOW_API_KEY
 
     # Fixed payload structure to match expected format
+
     payload = {
         "input_value": user_input,  # Changed from nested "input" object
         "output_type": "chat",      # Keep as specified
@@ -105,6 +106,7 @@ def voice():
     """
     response = VoiceResponse()
     speech_result = request.form.get('SpeechResult')
+    
 
     if speech_result:
         print(f"User said: {speech_result}")
@@ -188,6 +190,15 @@ def test_your_search():
             "results_count": 0,
             "results": []
         }), 500
+
+@app.route('/health')
+def health_check():
+    """Health check endpoint for Docker and load balancers."""
+    return jsonify({
+        "status": "healthy",
+        "service": "hackathon-langflow-twilio",
+        "timestamp": "2024-01-01T00:00:00Z"
+    }), 200
 
 # --- Main execution block ---
 if __name__ == "__main__":

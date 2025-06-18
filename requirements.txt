@@ -3,3 +3,14 @@ twilio
 python-dotenv>=1.0.0
 requests>=2.31.0
 beautifulsoup4
+langchain-google-community
+
+# Testing dependencies
+pytest>=7.0.0
+pytest-cov>=4.0.0
+pytest-mock>=3.10.0
+
+# Code quality
+flake8>=6.0.0
+black>=23.0.0
+bandit>=1.7.0
